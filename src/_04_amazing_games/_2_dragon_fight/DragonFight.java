@@ -47,7 +47,7 @@ public class DragonFight {
 			// 5. If they typed in "kick":
 			if (attack.equals("kick")) {
 				// -- Find a random number between 0 and 25 and store it in playerAttack.
-				playerAttack=ran.nextInt(26);
+				playerAttack=ran.nextInt(80);
 			}
 			// 6. Subtract the player attack value from the dragon's health
 			dragonsHealth=dragonsHealth-playerAttack;
@@ -61,16 +61,21 @@ public class DragonFight {
 
 			// 9. If the player's health is less than or equal to 0, the game is over,
 			//    call the playerLost() method
-			if(playerHealth<0);
+			if(playerHealth<=0){
+				playerLost();
+			}
 
 			// 10. If the dragon's health is less than or equal to 0, the game is over,
 			//     call the dragonLost() method
-			if(dragonsHealth<0);
-		}]
+			if(dragonsHealth<=0) {
+				dragonLost();
+			}
+		
 			// 11.  Pop up a message that tells us how much health the player and
 			// 		dragon have left.
-
-
+	
+			JOptionPane.showMessageDialog(null,"player's health:  " + playerHealth);
+			JOptionPane.showMessageDialog(null,"dragon'shealth:   "+ dragonsHealth);
 			// (Bonus: Also display the amount of health that was lost by each in this
 			// round)
 
@@ -81,14 +86,14 @@ public class DragonFight {
 
 	static void playerLost() {
 		// 11. Tell the player that they have been defeated by the dragon and have no treasure
-
+		JOptionPane.showMessageDialog(null,"You have been defeated by the dragon and have no treasure");
 
 		System.exit(0);   //This code ends the program
-	}
+	} 
 
 	static void dragonLost() {
 		// 12. Tell the user that the dragon has been defeated and they get a ton of gold!
-
+		JOptionPane.showMessageDialog(null,"the dragon has been defeated and you get a ton of gold!");
 		System.exit(0);   //This code ends the program
 	}
 
